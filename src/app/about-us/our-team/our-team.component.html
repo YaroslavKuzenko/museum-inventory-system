@@ -1,0 +1,31 @@
+<app-container>
+  <div right>
+    <div class="team__wrapper">
+
+      <div class="border-bottom-1 border-gray
+                  flex flex-column md:flex-row">
+        <div class="w-11 md:w-8
+                    mb-4 md:mb-0 mx-auto md:mx-0
+                    flex-order-2 md:flex-order-1 align-items-center">
+          <img loading="lazy" alt="our team" class="h-16rem w-full border-round-lg md:border-noround"
+               src="{{data.banner}}">
+        </div>
+        <p class="font-light line-height-2
+                  text-sm md:text-base
+                  my-4 md:my-auto mx-auto
+                  w-11 md:w-4
+                  flex-order-1 md:flex-order-2 md:pl-6 md:pr-5">
+          {{ data.bannerText }}
+        </p>
+      </div>
+
+      <div class="px-4 pt-4 pb-5 md:px-6 border-bottom-1 border-gray">
+        <p class="font-fam-sf text-2xl md:text-4xl line-height-2 text-white mb-4">{{ data.teamTitle }}</p>
+        <div class="text-sm md:text-base text-grayI line-height-2 font-light">
+          <p class="mb-3">{{ data.teamP1 }}</p>
+          <p>{{ data.teamP2 }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-container>

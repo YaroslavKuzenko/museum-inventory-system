@@ -1,0 +1,37 @@
+<app-container>
+  <div left></div>
+  <div right>
+    <div class="advantages__wrapper">
+      <div class="advantages__item">
+        <div class="advantages__item-image">
+          <img loading="lazy" alt="technologies" id="technologies-image" src="{{dataConfig.expertiseImage}}">
+        </div>
+        <div class="advantages__item-description">
+          <p class="advantages__item-title">{{ dataConfig.expertiseTitle }}</p>
+          <p class="advantages__item-subtitle">{{ dataConfig.expertiseSubtitle }}</p>
+        </div>
+      </div>
+
+      <div class="advantages__item">
+        <div class="advantages__item-description">
+          <p class="advantages__item-title">{{ dataConfig.costTitle }}</p>
+          <p class="advantages__item-subtitle">{{ dataConfig.costSubtitle }}</p>
+        </div>
+        <div class="advantages__item-image" id="cost-image">
+          <img loading="lazy" alt="technologies" src="{{dataConfig.costImage}}">
+        </div>
+      </div>
+
+      <div class="advantages__item">
+        <div class="advantages__item-image">
+          <img loading="lazy" alt="technologies" src="{{dataConfig.supportImage}}">
+        </div>
+        <div class="advantages__item-description">
+          <p class="advantages__item-title">{{ dataConfig.supportTitle }}</p>
+          <p class="advantages__item-subtitle">{{ dataConfig.supportSubtitle }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-container>
+

@@ -1,0 +1,67 @@
+@import 'colors';
+
+//------------text color styles------------
+.text-white {
+  color: $white;
+}
+
+.text-cream {
+  color: $cream;
+}
+
+.text-black {
+  color: $black;
+}
+
+.text-grayI {
+  color: $grayI;
+}
+
+.text-grayII {
+  color: $grayII;
+}
+
+.text-grayIII {
+  color: $grayIII;
+}
+
+.text-purple {
+  color: $purple;
+}
+
+.text-gradient {
+  background: linear-gradient(to right, #5E6AD2, #B2FCFC);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+//------------border styles------------
+.border-gray {
+  border-color: $grayIII;
+}
+
+.mobile-radius-gray-border {
+  @include styleclass('border-round-lg border-1 border-solid border-gray');
+}
+
+//------------background styles------------
+.bg-white {
+  background-color: $white;
+}
+
+.bg-black {
+  background-color: $black;
+}
+
+.bg-grayIII {
+  background-color: $grayIII;
+}
+
+.bg-gradient {
+  background: linear-gradient(to right, #5E6AD2, #B2FCFC);
+}
+
+.bg-black-transparent {
+  background-color: rgba($black, 0.9);
+}

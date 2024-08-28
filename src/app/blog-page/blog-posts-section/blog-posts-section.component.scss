@@ -1,0 +1,11 @@
+img{
+  margin: 0 auto;
+  object-fit: cover;
+  object-position: center;
+  height: 25rem;
+  width: 100%;
+}
+
+.banner__posts div:last-child{
+  border-bottom: none;
+}

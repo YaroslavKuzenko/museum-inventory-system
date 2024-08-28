@@ -1,0 +1,58 @@
+<app-lets-work-together class="animation"/>
+<app-contact-form class="animation"/>
+<footer class="footer animation">
+  <div class="footer__wrapper p-0 md:p-4 lg:p-6 flex flex-column md:flex-row justify-content-between gap-0 md:gap-4 ">
+    <div class="block md:flex md:flex-column justify-content-between align-items-start md:gap-3">
+      <div>
+        <div class="hidden md:block mb-4">
+          <a routerLink="{{ router.home }}"><img alt="K-Soft logo" src="{{ dataConfig.logo }}"></a>
+        </div>
+
+        <p class="text-xl md:text-sm font-light
+                  text-grayI
+                  border-bottom-1 md:border-bottom-none border-gray
+                  px-4 md:px-0 pb-4 md:pb-3 pt-5 md:pt-0">
+          {{ dataConfig.slogan }}
+        </p>
+        <p class="hidden md:block gray max-w-14rem text-sm text-grayII line-height-2">
+          {{ dataConfig.description }}
+        </p>
+      </div>
+
+      <img loading="lazy" alt="iso 27001 certified" class="iso-logo hidden md:block" src="{{ dataConfig.isoLogo }}">
+    </div>
+
+    <div>
+      <div class="footer__nav font-normal md:font-light text-white text-base md:text-sm line-height-3 md:line-height-2 p-4 md:p-0">
+        <ul>
+          <li><a class="link-gradient" routerLink="{{ router.services }}">Services and Process</a></li>
+          <li><a class="link-gradient" routerLink="{{ router.blog }}">Blog</a></li>
+          <li><a class="link-gradient" routerLink="{{ router.aboutUs }}">About us</a></li>
+          <li><a class="link-gradient" routerLink="{{ router.privacy }}">Privacy policy</a></li>
+        </ul>
+      </div>
+
+      <img loading="lazy" alt="k-soft" class="footer__watermark hidden md:inline-block" src="{{ dataConfig.waterMark }}">
+    </div>
+
+    <div class="hidden md:flex justify-content-end align-items-end h-auto md:w-5">
+      <app-gray-button (click)="scroll('contact-with-us')"  [text]="dataConfig.buttonTitle"/>
+    </div>
+  </div>
+
+  <div class="flex flex-column md:flex-row md:justify-content-between md:align-items-center px-0 lg:px-4">
+    <div class="flex flex-order-1 align-items-center gap-3 p-4">
+      <img loading="lazy" alt="K-soft logomark" class="inline-block md:hidden h-2rem w-auto" src="{{ dataConfig.logomark }}">
+      <p class="text-white font-light text-sm md:text-base line-height-2">
+        <span class="hidden md:inline">{{ dataConfig.allRights }}</span>
+        <span>{{ dataConfig.copyright }}</span>
+      </p>
+    </div>
+
+    <div class="footer__socials md:flex-order-2 p-4 text-2xl text-white flex gap-1 border-bottom-1 md:border-bottom-none border-gray">
+      <a class="link-gradient" href="{{ socials.linkedin.link }}" target="_blank"><i class="{{ socials.linkedin.icon }}"></i></a>
+      <a class="link-gradient" href="{{ socials.x.link }}" target="_blank"><i class="{{ socials.x.icon }}"></i></a>
+      <a class="link-gradient" href="{{ socials.facebook.link }}" target="_blank"><i class="{{ socials.facebook.icon }}"></i></a>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,25 @@
+<app-container>
+  <div left></div>
+
+  <div right>
+    <div class="work__wrapper">
+      <div class="work__image">
+        <img loading="lazy" alt="how we work" src="images/backgrounds/how-we-work.webp">
+      </div>
+
+      <div class="work__title">
+        <div class="work__title-wrapper">
+          <h1>How we work</h1>
+          <app-gray-button routerLink="{{router.aboutUs}}" [text]="'Learn more'"/>
+        </div>
+      </div>
+    </div>
+
+    <div class="work__steps flex flex-wrap flex-column md:flex-row">
+      @for (step of workSteps; track step.number) {
+        <app-work-step [data]="step" class="w-12 md:w-6 xl:w-3"/>
+      }
+    </div>
+  </div>
+</app-container>
+

@@ -1,0 +1,5 @@
+.stats {
+  &__item:last-child &__item-text {
+    border-bottom: none;
+  }
+}

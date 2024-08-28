@@ -1,0 +1,14 @@
+<a target="_blank" href="{{data.link}}">
+  <div class="white-gradient-button py14 px-3 flex align-items-center justify-content-between gap-1">
+    <i class="ph-fill ph-lightning text-2xl text-black"></i>
+    <span class="text-black text-sm sm:text-base font-medium sm:font-normal line-height-2" >
+    Let’s Schedule a call now!
+  </span>
+
+    <div class="avatars flex align-items-center">
+      @for (ava of data.avatars; track $index){
+        <img loading="lazy" alt="{{'avatar ' + $index}}" src="{{ava}}" />
+      }
+    </div>
+  </div>
+</a>

@@ -1,0 +1,30 @@
+<app-container>
+  <div right>
+    <div class="staff__wrapper w-11 md:w-auto mx-auto md:mx-5 my-4 md:my-6">
+      <div>
+        <p-carousel [autoplayInterval]="3000"
+                    [circular]="true"
+                    [numScroll]="1"
+                    [numVisible]="1"
+                    [value]="employees">
+          <ng-template let-employee pTemplate="item">
+            <div class="flex">
+              <div><i class="ph ph-quotes text-grayIII text-4xl mr-0 md:mr-5"></i></div>
+              <div>
+                <div class="employee-card flex flex-column md:flex-row md:gap-6 px-3">
+                  <img loading="lazy" [src]="employee.image" alt="{{ employee.name }}" class="h-13rem">
+
+                  <div class="employee-info">
+                    <h2 class="text-white font-medium text-2xl line-height-2 mt-3 mb-2">{{ employee.name }}</h2>
+                    <h3 class="text-sm md:text-base font-light line-height-2 mb-3">{{ employee.position }}</h3>
+                    <p class="text-sm md:text-base font-light line-height-2">{{ employee.text }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </p-carousel>
+      </div>
+    </div>
+  </div>
+</app-container>

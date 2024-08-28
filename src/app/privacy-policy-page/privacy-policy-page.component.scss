@@ -1,0 +1,21 @@
+.privacy{
+  &__container{
+    margin-top: 170px;
+
+    img{
+      object-fit: cover;
+      object-position: center;
+      height: 35rem;
+      width: 100%;
+      max-width: 1000px;
+    }
+  }
+}
+
+@media (max-width: 568px) {
+  .privacy {
+    &__container {
+      margin-top: 110px;
+    }
+  }
+}

@@ -1,0 +1,23 @@
+<app-container>
+  <div left></div>
+
+  <div right>
+    <div class="stats__wrapper
+              flex flex-column sm:flex-row flex-wrap justify-content-between
+              gap-4 sm:gap-4 md:gap-5 lg:gap-8 xl:gap-8
+              w-11 sm:w-auto
+              mx-auto mt-5 mb-3 sm:m-7 ">
+      <h1 class="stats__title font-fam-sf text-4xl font-medium line-height-2 text-white w-12 xl:w-5">Key stats</h1>
+
+      @for (item of data; track item.text) {
+        <div class="stats__item">
+          <p class="text-7xl font-light text-purple line-height-2 mb-3">{{ item.number }}</p>
+          <p class="stats__item-text text-sm sm:text-xl font-light text-cream line-height-2 pb-3 w-auto
+                    border-bottom-1 border-gray sm:border-bottom-none">
+            {{ item.text }}
+          </p>
+        </div>
+      }
+    </div>
+  </div>
+</app-container>

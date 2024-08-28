@@ -1,0 +1,24 @@
+@import "colors";
+
+.banner {
+  border-bottom: 1px solid $grayIII;
+
+  &__wrapper {
+    width: 91.6667%;
+    margin: 170px auto 40px;
+  }
+
+  &__image {
+    border-radius: 1rem;
+
+    img {
+      margin: 0 auto;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .banner {
+    display: none;
+  }
+}

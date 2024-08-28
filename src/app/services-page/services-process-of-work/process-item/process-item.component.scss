@@ -1,0 +1,19 @@
+.isVisible {
+  opacity: 1 !important;
+}
+
+.isHidden {
+  opacity: 0;
+}
+
+@media (max-width: 767px) {
+  .isVisible {
+    opacity: 1 !important;
+    height: 100% !important;
+  }
+
+  .isHidden {
+    opacity: 0;
+    height: 0;
+  }
+}

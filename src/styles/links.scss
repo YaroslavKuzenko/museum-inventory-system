@@ -1,0 +1,37 @@
+@import "colors";
+
+.link-gradient{
+  cursor: pointer;
+  font-weight: 500;
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-size: 600% 100%;
+  background-image: linear-gradient(to right, #B69DBB, #5E6AD2, #B2FCFC, #B69DBB, #5E6AD2, #B2FCFC, #5E6AD2, #B2FCFC, #5E6AD2, #B2FCFC);
+  transition: all 250ms linear;
+  background-position: right;
+}
+
+.link-gradient:hover {
+  animation: moveGradient 5s linear infinite;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes moveGradient {
+  0% {
+    background-position: right;
+  }
+  100% {
+    background-position: left;
+  }
+}
+
+@media(max-width: 767px) {
+  .link-gradient{
+    font-weight: 400;
+  }
+
+  .link-gradient:active {
+    animation: moveGradient 5s linear infinite;
+    -webkit-text-fill-color: transparent;
+  }
+}

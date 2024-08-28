@@ -1,0 +1,26 @@
+.presentation {
+  &__wrapper {
+    margin: 143px 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .presentation {
+    &__wrapper {
+      margin: 150px 0 25px;
+
+      img {
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .presentation {
+    &__wrapper {
+      margin: 110px 0 25px;
+    }
+  }
+}

@@ -1,0 +1,26 @@
+<header class="mx-3 relative z-5 animation">
+  <div
+    class="nav-bar__wrapper fixed w-11 max-width mx-auto mt-3 sm:mt-6 mb-3 p-3 bg-black-transparent mobile-radius-gray-border sm:border-round-2xl flex justify-content-between align-items-center"
+  >
+    <div class="flex justify-content-between w-12 sm:w-auto pl-3">
+      <a routerLink="{{router.home}}">
+        <img loading="eager" alt="k-soft logo" src="{{ linksConfig.logo }}"/>
+      </a>
+      <i (click)="showSidebar()" class="ph ph-list text-white text-4xl sm:hidden"></i>
+    </div>
+
+    <nav class="hidden sm:block mx-2">
+      <ul class="flex text-sm gap-3 md:text-base md:gap-4">
+        <li><a class="link-gradient" routerLink="{{router.services}}">Services and Process</a></li>
+        <li><a class="link-gradient" routerLink="{{router.blog}}">Blog</a></li>
+        <li><a class="link-gradient" routerLink="{{router.aboutUs}}">About us</a></li>
+      </ul>
+    </nav>
+
+    <div (click)="closeSidebar(); scroll('contact-with-us')" class="white-gradient-button px-4 py-3 cursor-pointer hidden sm:block text-sm md:text-base">
+      <a>Contact us</a>
+    </div>
+  </div>
+
+  <app-sidebar (close)="closeSidebar()" [class.showSidebar]="isSidebarVisible"/>
+</header>

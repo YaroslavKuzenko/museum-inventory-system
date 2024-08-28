@@ -1,0 +1,17 @@
+.text-36 {
+  font-size: 36px;
+}
+
+.margins {
+  margin: 74px 42px;
+}
+
+.margins2 {
+  margin: 60px 42px;
+}
+
+@media (max-width: 767px) {
+  .margins2 {
+    margin: 42px 24px 24px;
+  }
+}

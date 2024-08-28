@@ -1,0 +1,34 @@
+<app-container>
+  <div right>
+    <div class="clients__wrapper m-4 overflow-hidden">
+      <div class="clients__header w-11 sm:w-10">
+        <p class="clients__header-title font-fam-sf text-2xl sm:text-4xl text-white font-medium line-height-2 mb-4">
+          Trusted by the businesses indifferent scales
+        </p>
+        <p class="clients__header-subtitle text-grayI text-sm sm:text-xl font-light line-height-2">
+          Companies ranging from early-stage startups to Fortune 500 enterprises partner
+          with us to develop game-changing growth solutions.
+        </p>
+      </div>
+    </div>
+  </div>
+</app-container>
+<app-container>
+  <div class="mx-3" right>
+    <p-carousel
+      [circular]="true"
+      [numScroll]="4"
+      [numVisible]="4"
+      [responsiveOptions]="responsiveOptions"
+      [value]="clientsData"
+      autoplayInterval="1700"
+    >
+      <ng-template let-item pTemplate="item">
+        <div class="carousel-item py-5 px-3 flex justify-content-center h-full align-items-center">
+          <img loading="lazy" [alt]="item.name" [src]="item.image" class="carousel-image">
+        </div>
+      </ng-template>
+    </p-carousel>
+  </div>
+</app-container>
+

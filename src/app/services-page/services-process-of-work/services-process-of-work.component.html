@@ -1,0 +1,27 @@
+<app-container>
+  <div right>
+    <div class="process__wrapper">
+      <div class="border-bottom-1 md:border-bottom-none border-gray">
+        <div class="w-11 md:w-12 mx-auto
+                    px-0 pb-5 pt-4 md:px-6 md:py-8
+                    md:border-bottom-1 border-gray">
+          <p class="font-fam-sf text-white
+                    text-2xl md:text-5xl font-medium line-height-2 mb-4 md:mb-0">
+            Process of we work
+          </p>
+          <p class="block md:hidden font-fam-saans font-light text-sm line-height-2">
+            We draw from decades of diverse industry experience in over 30 business verticals to deliver top-tier
+            software
+            development services.
+          </p>
+        </div>
+      </div>
+
+      <div>
+        @for (d of data; track $index) {
+          <app-process-item [number]="$index+1" [title]="d.title" [description]="d.description"/>
+        }
+      </div>
+    </div>
+  </div>
+</app-container>

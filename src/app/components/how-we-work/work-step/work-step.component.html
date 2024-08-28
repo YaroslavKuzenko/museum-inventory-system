@@ -1,0 +1,19 @@
+<div class="step__wrapper px-4 py-5 border-top-1 border-right-1 border-gray relative">
+  <p class="step__number
+            text-right font-fam-sf font-medium text-4xl sm:text-2xl text-white line-height-2
+            absolute top-0 right-0 p-3">
+    {{ data.number | leadingZero }}
+  </p>
+  <div class="step__content
+              border-1 border-gray border-circle wh270
+              flex justify-content-center align-items-center mx-auto">
+    <div class="p-3">
+      <div class="border-circle bg-grayIII wh80
+                  flex justify-content-center align-items-center mx-auto mb-4">
+        <i class="{{data.icon}} text-4xl font-light text-gradient"></i>
+      </div>
+
+      <p class="step__title mx-auto w-9 text-xl text-center font-light line-height-2">{{ data.title }}</p>
+    </div>
+  </div>
+</div>

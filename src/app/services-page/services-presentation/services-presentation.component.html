@@ -1,0 +1,19 @@
+<app-container>
+  <div left class="border-bottom-1 border-gray">
+    <div class="mx-1 my-5 flex justify-content-center">
+      <a target="_blank" href="{{link}}">
+        <app-gray-button [text]="'Let\'s schedule a call now'"/>
+      </a>
+    </div>
+  </div>
+  <div right>
+    <div class="presentation__wrapper w-12">
+      <div class="w-11 md:w-10 lg:w-7 mx-auto">
+        <p class="font-fam-sf text-2xl md:text-4xl line-height-2 text-white mb-4">{{ data.title }}</p>
+        <img loading="lazy" alt="our workflow" class="block md:hidden h-16rem w-full border-round-lg mb-4"
+             src="{{data.image}}">
+        <p class="text-sm md:text-base text-grayI line-height-2 font-light">{{ data.text }}</p>
+      </div>
+    </div>
+  </div>
+</app-container>

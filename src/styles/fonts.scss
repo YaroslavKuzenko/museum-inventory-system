@@ -1,0 +1,45 @@
+/*----------- Saans Trial -----------*/
+@font-face {
+  font-family: 'Saans';
+  font-weight: 300;
+  src: url('@assets/fonts/saans/SaansTRIAL-Light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Saans';
+  font-weight: 400;
+  src: url('@assets/fonts/saans/SaansTRIAL-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Saans';
+  font-weight: 500;
+  src: url('@assets/fonts/saans/SaansTRIAL-Medium.ttf') format('truetype');
+}
+
+/*----------- SF -----------*/
+@font-face {
+  font-family: 'SF';
+  font-weight: 300;
+  src: url('@assets/fonts/sf/sf-light.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'SF';
+  font-weight: 400;
+  src: url('@assets/fonts/sf/sf-regular.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'SF';
+  font-weight: 500;
+  src: url('@assets/fonts/sf/sf-medium.otf') format('opentype');
+}
+
+.font-fam-saans {
+  font-family: Saans, sans-serif;
+}
+
+.font-fam-sf {
+  font-family: SF, sans-serif;
+}

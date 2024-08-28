@@ -1,0 +1,21 @@
+.wh270 {
+  width: 100%;
+  height: 100%;
+  max-width: 270px;
+  max-height: 270px;
+  aspect-ratio: 1/1;
+}
+
+.wh80 {
+  width: 100%;
+  height: 100%;
+  max-width: 80px;
+  max-height: 80px;
+  aspect-ratio: 1/1;
+}
+
+.text-gradient {
+  background: linear-gradient(to right, #5E6AD2, #B2FCFC);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

@@ -1,0 +1,44 @@
+<app-container>
+  <div right>
+    <div class="details__wrapper w-11 md:w-12 mx-auto mt-4">
+      <div class="">
+        <p class="font-fam-sf text-white
+                text-4xl md:text-5xl font-medium line-height-2
+                 px-0 pb-4 md:px-6 md:py-8
+                md:border-bottom-1 border-gray">
+          {{ data.title }}
+        </p>
+      </div>
+
+      @for (d of data.list; track $index) {
+        <div class="border-bottom-1 border-gray mb-4 md:mb-0">
+          <div class="flex flex-column md:gap-4 md:flex-row md:align-items-center md:py-5 md:px-6">
+            <p class="text-sm md:text-2xl text-white font-light md:font-normal line-height-2 mb-4 md:mb-0 md:w-5">
+              {{ d.title }}
+            </p>
+            <p class="text-sm md:text-base font-light line-height-2 mb-4 md:w-7 md:my-auto">
+            <span class="inline-block w-10">
+              {{ d.text }}
+            </span>
+            </p>
+          </div>
+        </div>
+      }
+
+      <div>
+        <div class="flex flex-column md:gap-4 md:flex-row md:align-items-center md:py-5 md:px-6">
+          <p class="text-sm md:text-2xl text-white font-light md:font-normal line-height-2 mb-4 md:mb-0 md:w-5">
+            Visit us
+          </p>
+          <div class="text-sm md:text-base  mb-4 md:w-7 md:my-auto">
+            <ul>
+              <li class="mb-2"><a class="link-gradient" target="_blank" href="{{socials.x.link}}">{{ socials.x.name }}</a></li>
+              <li class="mb-2"><a class="link-gradient" target="_blank" href="{{socials.facebook.link}}">{{ socials.facebook.name }}</a></li>
+              <li><a class="link-gradient" target="_blank" href="{{socials.linkedin.link}}">{{ socials.linkedin.name }}</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-container>

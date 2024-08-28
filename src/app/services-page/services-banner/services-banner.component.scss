@@ -1,0 +1,13 @@
+
+.banner {
+  &__wrapper {
+    margin-top: 170px;
+  }
+
+  &__image {
+    img {
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+}

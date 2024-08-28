@@ -1,0 +1,20 @@
+<div class="sidebar__wrapper bg-black w-11 mx-auto my-3 p-3 h90 mobile-radius-gray-border text-white">
+  <div class="flex justify-content-between w-12 sm:w-auto pl-3 mb-4">
+    <a (click)="closeSidebar()" routerLink="{{ router.home }}">
+      <img loading="lazy" alt="k-soft logo" src="images/logos/small-logo.svg" />
+    </a>
+    <i (click)="closeSidebar()" class="ph ph-x text-white text-4xl"></i>
+  </div>
+
+  <nav>
+    <ul>
+      <li><a class="link-gradient" (click)="closeSidebar()" routerLink="{{ router.services }}">Services and Process</a></li>
+      <li><a class="link-gradient" (click)="closeSidebar()" routerLink="{{ router.blog }}">Blog</a></li>
+      <li><a class="link-gradient" (click)="closeSidebar()" routerLink="{{ router.aboutUs }}">About us</a></li>
+    </ul>
+  </nav>
+
+  <div class="white-gradient-button mt-4 mb-3 mx-3" (click)="closeSidebar(); scroll('contact-with-us')">
+    <a>Contact us</a>
+  </div>
+</div>

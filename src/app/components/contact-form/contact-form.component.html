@@ -1,0 +1,52 @@
+<app-container>
+  <div right>
+    <div class="form__wrapper">
+      <p class="form__title">Or, we reach out to you.</p>
+
+      <form (ngSubmit)="onSubmit()" [formGroup]="contactForm">
+        <h4 class="form__subtitle">What can we do for you?</h4>
+
+        <div class="form__services">
+          @for (service of dataConfig.services; track $index) {
+            <button class="cursor-pointer" (click)="toggleService(service)" [ngClass]="{'service-selected': isServiceActive(service)}"
+                    type="button">
+              {{ service }}
+            </button>
+          }
+        </div>
+
+        <div class="form__personal-data">
+          <div class="form__personal-data-item">
+            <label for="clientName">Your Name</label>
+            <input [ngClass]="{'inputInvalid': isInputInvalidAndUntouched('name')}" formControlName="name"
+                   id="clientName" placeholder="Jane Doe" type="text"/>
+          </div>
+          <div class="form__personal-data-item">
+            <label for="clientEmail">Your Email</label>
+            <input [ngClass]="{'inputInvalid': isInputInvalidAndUntouched('email')}" formControlName="email"
+                   id="clientEmail" placeholder="janedoe@gmail.com" type="email"/>
+          </div>
+        </div>
+
+        <h3 class="form__budget-title">Budget</h3>
+        <div class="form__budget">
+          @for (budget of dataConfig.budgets; track $index) {
+            <label class="cursor-pointer">
+              <input formControlName="budget" type="radio" value="{{budget}}"/>
+              <span>{{ budget }}</span>
+            </label>
+          }
+        </div>
+
+        <div class="form__details">
+          <h3>Project details (Optional)</h3>
+          <textarea class="form__details-textarea" formControlName="projectDetails"
+                    placeholder="Your project and business details.">
+          </textarea>
+        </div>
+
+        <button [disabled]="!contactForm.valid" class="form__submit" type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+</app-container>

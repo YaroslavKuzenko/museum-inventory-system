@@ -1,0 +1,104 @@
+@import "colors";
+
+.gray {
+  color: #686464;
+}
+
+.iso-logo {
+  max-height: 53px;
+  width: auto;
+}
+
+.footer {
+  &__wrapper {
+    overflow: hidden;
+    border-top: 1px solid $grayIII;
+    border-bottom: 1px solid $grayIII;
+
+    width: 100%;
+    max-height: 432px;
+
+    background-image: url('@assets/images/logos/big-logo2.webp');
+    background-size: contain contain;
+    background-repeat: no-repeat;
+    background-position: right center;
+  }
+
+  &__nav {
+    margin-top: 90px;
+
+    li {
+      padding-bottom: .5rem;
+      cursor: pointer;
+    }
+  }
+
+  &__watermark {
+    height: 165px;
+    margin-top: 72px;
+
+    object-fit: cover;
+    object-position: left center;
+  }
+
+  &__socials {
+    a {
+      cursor: pointer;
+    }
+  }
+}
+
+@media (max-width: 1300px) {
+  .footer {
+    &__wrapper {
+      border-top: none;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .footer {
+    &__wrapper {
+      background-position: right -300px center;
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .footer {
+    &__wrapper {
+      background-position: right -400px center;
+    }
+
+    &__watermark {
+      margin-top: 96px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .footer {
+    background-image: url('@assets/images/logos/big-logo2.webp');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right -110px bottom -80px;
+    padding-bottom: 2rem;
+
+    &__wrapper {
+      background-image: none;
+    }
+
+    &__nav {
+      margin-top: 0;
+      padding: 1.5rem;
+
+      li {
+        padding-bottom: 1rem;
+      }
+
+      li:last-child {
+        padding-bottom: 0;
+      }
+    }
+  }
+}
