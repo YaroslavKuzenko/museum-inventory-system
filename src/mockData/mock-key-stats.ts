@@ -1,28 +1,28 @@
-import {KeyStatModel} from "../models/key-stat.interface";
+import { KeyStatModel } from "../models/key-stat.interface";
 
 export const mockKeyStatsInfo: KeyStatModel[] = [
   {
+    number: '10K+',
+    text: 'artifacts cataloged'
+  },
+  {
     number: '500+',
-    text: 'award-winning clients'
+    text: 'museum collections managed'
   },
   {
-    number: '$15B+',
-    text: 'in client acquisitions'
+    number: '150+',
+    text: 'partner museums worldwide'
   },
   {
-    number: '36',
-    text: 'monthly average engagement'
+    number: '99%',
+    text: 'inventory accuracy achieved'
   },
   {
-    number: '20+',
-    text: 'client IPOs supported'
-  },
-  {
-    number: '20+',
+    number: '5+',
     text: 'years of experience'
   },
   {
-    number: '3K+',
-    text: 'world-class engineers'
+    number: '1M+',
+    text: 'visitors served annually'
   },
-]
+];

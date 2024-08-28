@@ -1,6 +1,5 @@
 export const navbarConfig = {
-  logo: 'images/logos/small-logo.svg',
-
+  logo: 'images/logos/logo-m.png',
 };
 
 export const routerConfig = {
@@ -12,64 +11,64 @@ export const routerConfig = {
 }
 
 export const mainBannerConfig = {
-  title1: 'Expert Software Solutions',
-  title2: 'for your business needs',
-  subtitle: 'You get results from a dedicated team with the proven expertise of a software industry leader.',
-  percent1: '90%',
-  metric1: 'faster product development',
-  percent2: '90%',
-  metric2: 'Reduced Operational Cost',
+  title1: 'Efficient Inventory Solutions',
+  title2: 'for Museums and Exhibits',
+  subtitle: 'Manage and track your museum’s collection effortlessly with our advanced inventory system.',
+  percent1: '95%',
+  metric1: 'increased accuracy',
+  percent2: '85%',
+  metric2: 'time saved in management',
 }
 
 export const textPresentationConfig = {
-  title: 'As K-Soft, we lead the software industry by developing innovative and unique solutions that not only meet but exceed client expectations.',
-  subtitle: 'Get it done right — the first time with our proven software expertise in web, mobile, cloud, AI, and VR. Focus on innovation and growth while we handle the rest.'
+  title: 'At Museum Inventory System, we revolutionize the way museums manage their collections with cutting-edge technology and intuitive design.',
+  subtitle: 'Simplify your inventory management, streamline operations, and protect your valuable exhibits with our reliable and user-friendly system.'
 }
 
 export const advantagesConfig = {
   expertiseImage: "images/icons/expertise.png",
-  expertiseTitle: "Expert in the newest technologies and methodologies",
-  expertiseSubtitle: "Proficient in web, mobile, cloud, and advanced tech like AI and ML, we empower you to innovate and grow your business at the scale and speed of future trends.",
+  expertiseTitle: "Specialized in Museum and Exhibit Management",
+  expertiseSubtitle: "Our system is designed specifically for museums, ensuring all your unique needs are met efficiently and effectively.",
 
   costImage: "images/icons/cost.png",
-  costTitle: "Maximized efficiency and cost effective",
-  costSubtitle: "You’re not paying for an office full of people you don’t need. Depending on the task, we assemble a global team, remotely. So that you have precisely the right talent working for you. And nobody else.",
+  costTitle: "Cost-Effective and Scalable",
+  costSubtitle: "Whether you’re managing a small local museum or a large national gallery, our system scales with your needs, ensuring you only pay for what you use.",
 
   supportImage: "images/icons/support.png",
-  supportTitle: "24/7 Support for uninterrupted service",
-  supportSubtitle: "Get it done right — the first time. Our proven software expertise means you don’t have to worry about timelines, processes, or outcomes."
+  supportTitle: "24/7 Support for Your Peace of Mind",
+  supportSubtitle: "Our dedicated support team is always here to ensure that your museum’s inventory system runs smoothly, no matter the time."
 }
 
 export const servicesPresentationConfig = {
-  title: 'Software Solutions',
-  text: 'Wondering how well we know your industry? Curious which tech stacks we support? Spanning to many verticals and latest technologies, our team has designed and implemented innovative solutions to suit even the most unique needs.',
+  title: 'Inventory Management Solutions',
+  text: 'Our system is tailored to the specific needs of museums, providing the tools you need to manage collections, track items, and optimize your workflow.',
   image: 'images/banners/our-team.webp',
 }
 
 export const ourPresentationConfig = {
-  title: 'Going extra mile for every project',
-  text: 'We offer customized software solutions that perfectly align with our clients\' needs, and promise going for the extra mile in every project. We are specialized in delivering integrated, reliable, resilient, and cost-effective solutions. The company creates long lasting relationships with their clients and grow together based on trust with a deep understanding of business goals.',
+  title: 'Committed to Preserving History',
+  text: 'We provide a secure and efficient system to help museums manage and protect their collections. Our team is dedicated to ensuring that every item in your inventory is properly catalogued, tracked, and preserved.',
   image: 'images/banners/full-banner.webp',
 }
 
 export const ourTeamConfig = {
   banner: 'images/banners/our-team.webp',
-  bannerText: 'We create long lasting relationships with our clients and grow together based on trust with a deep understanding of business goals.',
-  teamTitle: 'Team',
-  teamP1: 'You’re not paying for an office full of people you don’t need. In fact, we don’t have an office at all.',
-  teamP2: 'Depending on the task, we assemble a global team, remotely. So that you have precisely the right talent working for you. And nobody else.',
+  bannerText: 'We partner with museums around the world, providing solutions that help preserve history and culture for future generations.',
+  teamTitle: 'Our Team',
+  teamP1: 'Our experts have a deep understanding of museum operations and are dedicated to providing the best inventory solutions.',
+  teamP2: 'We work closely with each museum to ensure that our system meets your specific needs, offering support every step of the way.',
 }
 
 export const aboutUsDetailsConfig = {
-  title: 'Details',
+  title: 'More About Us',
   list: [
     {
-      title: 'What makes us unique?',
-      text: 'We offer cost-effective processes, sustainable solutions and see your business as if our own and help you succeed in the best possible way.'
+      title: 'Why Choose Us?',
+      text: 'We offer a comprehensive, easy-to-use system that helps you manage your collection with accuracy and ease.'
     },
     {
-      title: 'Work with us',
-      text: 'We have openings for jobs, internship, or partnership.'
+      title: 'Join Our Community',
+      text: 'Whether you’re looking to manage a small collection or a large exhibit, we’re here to help. Explore partnership opportunities with us.'
     },
   ]
 }
@@ -86,32 +85,32 @@ export const socialNetworksConfig = {
     link: '#',
   },
   linkedin: {
-    name: 'linkedIn',
+    name: 'LinkedIn',
     icon: 'ph ph-linkedin-logo',
     link: '#',
   }
 }
 
 export const contactFormConfig = {
-  services: ['Software Development', 'Database Management', 'Mobile App Development', 'Cloud Solutions', 'Web Development', 'IT Consulting', 'AI and ML', 'ERP', 'Digital Transformation', 'BI Solution', 'E-commerce', 'Business process automation'],
-  budgets: ['Under $ 10K', '$ 10-20K', '$ 20-50K', '$ 50-250k', '>250k'],
-  endpoint: 'https://formbold.com/s/oyNGN',
+  services: ['Inventory Management', 'Collection Tracking', 'Exhibit Planning', 'Digital Cataloging', 'Museum Solutions', 'Artifact Management'],
+  budgets: ['Under $1K', '$2-3K', '$10-20K', '$20-50K', '>50K$'],
+  endpoint: '',
 }
 
 export const footerConfig = {
   logo: 'images/logos/small-logo.svg',
   logoLink: '#',
-  slogan: 'Serving 1% better every day.',
-  description: 'K-Soft, offers customized software solutions that perfectly align with clients\' needs, and promises going for the extra mile in every project.',
+  slogan: 'Preserving history one item at a time.',
+  description: 'Museum Inventory System offers reliable, scalable, and user-friendly solutions to help museums manage their collections effectively.',
   isoLogo: 'images/icons/iso.svg',
 
   waterMark: 'images/backgrounds/k-soft.webp',
 
   logomark: 'images/logos/white-logomark.svg',
   allRights: 'All rights reserved. ',
-  copyright: 'K-Soft © 2024',
+  copyright: 'Museum Inventory System © 2024',
 
-  buttonTitle: 'Let’s work together',
+  buttonTitle: 'Get Started Today',
   buttonLink: '',
 }
 
