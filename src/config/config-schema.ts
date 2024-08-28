@@ -94,7 +94,7 @@ export const socialNetworksConfig = {
 export const contactFormConfig = {
   services: ['Inventory Management', 'Collection Tracking', 'Exhibit Planning', 'Digital Cataloging', 'Museum Solutions', 'Artifact Management'],
   budgets: ['Under $1K', '$2-3K', '$10-20K', '$20-50K', '>50K$'],
-  endpoint: '',
+  endpoint: 'https://formbold.com/s/9gOBV',
 }
 
 export const footerConfig = {
