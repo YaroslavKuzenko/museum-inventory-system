@@ -1,0 +1,31 @@
+@import "../../../../styles/colors";
+
+.container {
+  display: flex;
+
+  &__left-part {
+    width: 20%;
+  }
+
+  &__right-part {
+    width: 80%;
+    border-left: 1px solid $grayIII;
+    border-bottom: 1px solid $grayIII;
+  }
+}
+
+@media (max-width: 1300px) {
+  .container {
+    display: flex;
+
+    &__left-part {
+      width: 0;
+      display: none;
+    }
+
+    &__right-part {
+      width: 100%;
+      border-left: none;
+    }
+  }
+}
