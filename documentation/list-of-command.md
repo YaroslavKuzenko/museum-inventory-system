@@ -10,4 +10,9 @@ alembic upgrade head
 
 # Запуск бекенду
 ### перебуваючи у папці backend
+python3.10 -m venv venv
+source venv/bin/activate
 uvicorn main:app --reload
+
+### swagger 
+http://127.0.0.1:8000/docs
