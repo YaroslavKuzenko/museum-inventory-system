@@ -7,7 +7,7 @@ from auth.manager import get_user_manager
 from auth.schemas import UserRead, UserCreate
 
 app = FastAPI(
-    title="Trading App"
+    title="Museum Inventory System"
 )
 
 fastapi_users = FastAPIUsers[User, int](

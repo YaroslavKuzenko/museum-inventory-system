@@ -1,4 +1,5 @@
 # Mirgations
+### перебуваючи у папці backend
 ### Cтворити міграцію: 
 alembic revision --autogenerate -m "name of migration"
 
