@@ -10,7 +10,7 @@
 ```alembic upgrade head```
 
 # Запуск бекенду
-### перебуваючи у папці backend
+### перебуваючи у папці backend/src
 ```
 python3.10 -m venv venv
 source venv/bin/activate
