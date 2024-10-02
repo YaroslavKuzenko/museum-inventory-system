@@ -1,7 +1,7 @@
 <app-container>
-  <div right>
+  <div class="register__wrapper" right>
     <h2 class="text-center">Register</h2>
-    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="p-fluid grid formgrid">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="p-fluid grid w-6 mx-auto">
       <div class="field col-12">
         <label for="email" class="block">Email</label>
         <input id="email" type="email" formControlName="email" pInputText class="w-full" />
@@ -18,8 +18,8 @@
         </small>
       </div>
 
-      <div class="col-12">
-        <button type="submit" pButton label="Register" class="w-full" [disabled]="registerForm.invalid"></button>
+      <div class="col-12 w-4 mx-auto">
+        <button type="submit" class="w-full text-white" [disabled]="registerForm.invalid">Register</button>
       </div>
     </form>
 

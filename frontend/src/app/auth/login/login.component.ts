@@ -3,13 +3,15 @@ import {ContainerComponent} from "../../components/shared/container/container.co
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {AuthService} from "../../../services/auth.service";
 import {Router} from "@angular/router";
+import {NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [
     ContainerComponent,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgIf
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
@@ -30,10 +32,13 @@ export class LoginComponent {
 
   onSubmit() {
     if (this.loginForm.valid) {
-      this.authService.login(this.loginForm.value).subscribe({
-        next: () => {
-          console.log('User logged in successfully');
-          this.router.navigate(['/']);
+      const email = this.loginForm.get('email')?.value;
+      const password = this.loginForm.get('password')?.value;
+
+      this.authService.login(email, password).subscribe({
+        next: (response) => {
+          console.log('User logged in successfully', response);
+          this.router.navigate(['/blog']);
         },
         error: (err) => {
           console.error('Login failed', err);

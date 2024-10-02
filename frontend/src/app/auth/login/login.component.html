@@ -1,7 +1,7 @@
 <app-container>
-  <div right>
+  <div class="login__wrapper" right>
     <h2 class="text-center">Login</h2>
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="p-fluid grid formgrid">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="p-fluid grid w-6 mx-auto">
       <div class="field col-12">
         <label for="email" class="block">Email</label>
         <input id="email" type="email" formControlName="email" pInputText class="w-full" />
@@ -18,8 +18,8 @@
         </small>
       </div>
 
-      <div class="col-12">
-        <button type="submit" pButton label="Login" class="w-full" [disabled]="loginForm.invalid"></button>
+      <div class="w-4 mx-auto">
+        <button type="submit"  class="w-full text-white" [disabled]="loginForm.invalid">Login</button>
       </div>
     </form>
 
