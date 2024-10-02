@@ -10,11 +10,14 @@
 ```alembic upgrade head```
 
 # Запуск бекенду
-### перебуваючи у папці backend/src
-```
-python3.10 -m venv venv
-source venv/bin/activate
-uvicorn main:app --reload
-```
-### swagger 
+## перебуваючи у папці backend
+### створити віртуальне середовище (тільки 1 раз)
+```python3.10 -m venv venv ```
+
+### відкрити віртуальне середовище
+```source venv/bin/activate```
+
+### перейти у папку src і запусти бек
+```uvicorn main:app --reload```
+# Swagger 
 http://127.0.0.1:8000/docs
