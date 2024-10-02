@@ -1,0 +1,31 @@
+<app-container>
+  <div right>
+    <h2 class="text-center">Register</h2>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="p-fluid grid formgrid">
+      <div class="field col-12">
+        <label for="email" class="block">Email</label>
+        <input id="email" type="email" formControlName="email" pInputText class="w-full" />
+        <small *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched" class="p-error">
+          Please enter a valid email.
+        </small>
+      </div>
+
+      <div class="field col-12">
+        <label for="password" class="block">Password</label>
+        <input id="password" type="password" formControlName="password" pInputText class="w-full" />
+        <small *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched" class="p-error">
+          Password must be at least 6 characters long.
+        </small>
+      </div>
+
+      <div class="col-12">
+        <button type="submit" pButton label="Register" class="w-full" [disabled]="registerForm.invalid"></button>
+      </div>
+    </form>
+
+    <p class="text-center mt-4">
+      Already have an account?
+      <a (click)="goToLogin()" class="cursor-pointer text-primary">Login here</a>
+    </p>
+  </div>
+</app-container>
