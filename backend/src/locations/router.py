@@ -4,7 +4,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from database import get_async_session
 from locations.models import location
-# from locations.schemas import OperationCreate
+from locations.schemas import LocationCreate
 
 router = APIRouter(
     prefix="/locations",
@@ -29,13 +29,9 @@ async def get_specific_operations(location_id: int, session: AsyncSession = Depe
     else:
         return {"error": "Location not found"}
 
-
-
-#TODO: add post request for creating location
-
-# @router.post("/")
-# async def add_specific_operations(new_location: OperationCreate, session: AsyncSession = Depends(get_async_session)):
-#     stmt = insert(location).values(**new_location.dict())
-#     await session.execute(stmt)
-#     await session.commit()
-#     return {"status": "success"}
+@router.post("/")
+async def add_specific_operations(new_location: LocationCreate, session: AsyncSession = Depends(get_async_session)):
+    stmt = insert(location).values(**new_location.dict())
+    await session.execute(stmt)
+    await session.commit()
+    return {"status": "success"}
