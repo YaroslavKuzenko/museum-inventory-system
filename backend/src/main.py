@@ -6,6 +6,7 @@ from auth.schemas import UserRead, UserCreate
 
 from operations.router import router as router_operation
 from locations.router import router as router_locations
+from exponats.router import router as router_exponats
 
 app = FastAPI(
     title="Museum Inventory System"
@@ -38,3 +39,4 @@ app.add_middleware(
 
 app.include_router(router_operation)
 app.include_router(router_locations)
+app.include_router(router_exponats)

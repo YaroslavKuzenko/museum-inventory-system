@@ -1,5 +1,5 @@
 from sqlalchemy import Table, Column, Integer, String, Date, Text, ForeignKey, MetaData
-from ..locations.models import location
+from locations.models import location
 
 metadata = MetaData()
 
