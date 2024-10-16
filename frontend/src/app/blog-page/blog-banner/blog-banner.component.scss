@@ -1,0 +1,28 @@
+@import '../../../styles/colors';
+
+.banner {
+  &__wrapper {
+    margin-top: 170px;
+  }
+
+  &__posts{
+    &-text{
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+    }
+
+    div:last-child{
+      border-bottom: none;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .banner {
+    &__wrapper {
+      margin-top: 0;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+@import '../node_modules/primeflex/primeflex';
+@import "../node_modules/primeng/resources/themes/lara-light-blue/theme.css";
+@import "../node_modules/primeng/resources/primeng.css";
+@import 'styles/fonts';
+@import 'styles/colors';
+@import 'styles/nullstyle';
+@import 'styles/buttons';
+@import "styles/links";
+@import 'styles/overwrite';
+@import 'styles/custom-elements-colors';
+@import 'styles/section-animation';
+
+body {
+  font-family: Saans, sans-serif;
+  background-color: $black;
+  color: $grayI;
+  font-size: 1rem;
+  line-height: 1.16rem;
+}

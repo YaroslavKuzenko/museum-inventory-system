@@ -1,0 +1,48 @@
+@import "../../../../styles/colors";
+@import "../../../../styles/buttons";
+
+.button {
+  &__container {
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  &__wrapper {
+    @extend .gray-gradient-button;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+    padding: 0.75rem 1.5rem;
+
+    width: auto;
+
+    a {
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.2;
+      color: $grayI;
+    }
+
+    i {
+      font-size: 1rem;
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .button {
+    &__wrapper {
+      padding: 0.75rem 1rem;
+
+      a {
+        font-size: 13px;
+        font-weight: 500;
+      }
+
+      i {
+        font-size: 1rem;
+      }
+    }
+  }
+}

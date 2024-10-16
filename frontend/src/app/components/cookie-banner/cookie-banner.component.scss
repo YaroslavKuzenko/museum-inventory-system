@@ -1,0 +1,44 @@
+@import "../../../styles/colors";
+
+.cookie-banner{
+  max-width: 800px;
+}
+
+.w-button {
+  text-align: center;
+  padding: 1rem .5rem;
+  font-size: 1rem;
+  line-height: 1.2;
+  color: $black;
+  background: $white;
+  border: 1px solid $white;
+  border-radius: .5rem;
+
+  transition: all 250ms ease-out;
+}
+
+.w-button:active {
+  color: $white;
+  background: transparent;
+}
+
+.b-button {
+  text-align: center;
+  padding: 1rem .5rem;
+  font-size: 1rem;
+  line-height: 1.2;
+  color: $white;
+  background: $black;
+  border: 1px solid $grayIII;
+  border-radius: .5rem;
+
+  transition: all 250ms ease-out;
+}
+
+.b-button:active {
+  border-color: $white;
+  color: $black;
+  background: $white;
+}
+
+
