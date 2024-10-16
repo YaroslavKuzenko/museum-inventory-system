@@ -13,7 +13,7 @@ router = APIRouter(
 
 
 @router.get("/")
-async def get_specific_operations(location_id: int, session: AsyncSession = Depends(get_async_session)):
+async def get_specific_locations(location_id: int, session: AsyncSession = Depends(get_async_session)):
     query = select(location).where(location.c.id == location_id)
     result = await session.execute(query)
     location_data = result.fetchone()  # Використовуємо fetchone, якщо очікуємо один результат
@@ -30,7 +30,7 @@ async def get_specific_operations(location_id: int, session: AsyncSession = Depe
         return {"error": "Location not found"}
 
 @router.post("/")
-async def add_specific_operations(new_location: LocationCreate, session: AsyncSession = Depends(get_async_session)):
+async def add_specific_locations(new_location: LocationCreate, session: AsyncSession = Depends(get_async_session)):
     stmt = insert(location).values(**new_location.dict())
     await session.execute(stmt)
     await session.commit()
