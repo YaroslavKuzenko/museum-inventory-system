@@ -12,22 +12,27 @@ router = APIRouter(
 )
 
 
-# @router.get("/")
-# async def get_specific_exponats(exponat_id: int, session: AsyncSession = Depends(get_async_session)):
-#     query = select(exponat).where(exponat.c.id == exponat_id)
-#     result = await session.execute(query)
-#     exponat_data = result.fetchone()  # Використовуємо fetchone, якщо очікуємо один результат
-#
-#     if exponat_data:
-#         exponat_dict = {
-#             "id": exponat_data.id,
-#             "name": exponat_data.name,
-#             "address": exponat_data.address,
-#             "capacity": exponat_data.capacity
-#         }
-#         return exponat_dict
-#     else:
-#         return {"error": "exponat not found"}
+@router.get("/")
+async def get_specific_exponats(exponat_id: int, session: AsyncSession = Depends(get_async_session)):
+    query = select(exponat).where(exponat.c.id == exponat_id)
+    result = await session.execute(query)
+    exponat_data = result.fetchone()  # Використовуємо fetchone, якщо очікуємо один результат
+
+    if exponat_data:
+        exponat_dict = {
+            "id": exponat_data.id,
+            "name": exponat_data.name,
+            "author": exponat_data.author,
+            "created_date": exponat_data.created_date,
+            "materials": exponat_data.materials,
+            "description": exponat_data.description,
+            "condition": exponat_data.condition,
+            "restoration_history": exponat_data.restoration_history,
+            "location_id": exponat_data.location_id
+        }
+        return exponat_dict
+    else:
+        return {"error": "exponat not found"}
 
 
 @router.post("/")
