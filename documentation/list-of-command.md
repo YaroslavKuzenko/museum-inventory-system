@@ -1,7 +1,9 @@
 # Mirgations
 ### перебуваючи у папці backend
 ### Cтворити міграцію: 
-```alembic revision --autogenerate -m "name of migration"```
+```bash
+alembic revision --autogenerate -m "name of migration"
+```
 
 ### Оновити базу після міграції
 ```alembic upgrade (revision id, like b76b19d77dcb) ```   
@@ -15,9 +17,13 @@
 ```python3.10 -m venv venv ```
 
 ### відкрити віртуальне середовище
-```source venv/bin/activate```
+```bash
+source venv/bin/activate
+```
 
 ### перейти у папку src і запусти бек
-```uvicorn main:app --reload```
+```bash
+uvicorn main:app --reload
+```
 # Swagger 
 http://127.0.0.1:8000/docs
