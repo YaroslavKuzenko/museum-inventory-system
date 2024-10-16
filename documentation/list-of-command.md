@@ -25,6 +25,10 @@ source venv/bin/activate
 
 ### перейти у папку src і запусти бек
 ```bash
+cd src
+```
+
+```bash
 uvicorn main:app --reload
 ```
 # Swagger 
