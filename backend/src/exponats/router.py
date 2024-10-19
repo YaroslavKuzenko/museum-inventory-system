@@ -2,6 +2,7 @@ from fastapi import APIRouter, Depends
 from sqlalchemy import select, insert
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from auth.base_config import current_user
 from database import get_async_session
 from exponats.models import exponat
 from exponats.schemas import ExponatCreate
@@ -12,8 +13,11 @@ router = APIRouter(
 )
 
 
-@router.get("/")
-async def get_specific_exponats(exponat_id: int, session: AsyncSession = Depends(get_async_session)):
+@router.get("/", dependencies=[Depends(current_user)])
+async def get_specific_exponats(
+        exponat_id: int,
+        session: AsyncSession = Depends(get_async_session),
+):
     query = select(exponat).where(exponat.c.id == exponat_id)
     result = await session.execute(query)
     exponat_data = result.fetchone()  # Використовуємо fetchone, якщо очікуємо один результат
@@ -35,8 +39,11 @@ async def get_specific_exponats(exponat_id: int, session: AsyncSession = Depends
         return {"error": "exponat not found"}
 
 
-@router.post("/")
-async def add_specific_exponats(new_Exponat: ExponatCreate, session: AsyncSession = Depends(get_async_session)):
+@router.post("/", dependencies=[Depends(current_user)])
+async def add_specific_exponats(
+        new_Exponat: ExponatCreate,
+        session: AsyncSession = Depends(get_async_session),
+):
     stmt = insert(exponat).values(**new_Exponat.dict())
     await session.execute(stmt)
     await session.commit()

@@ -4,7 +4,6 @@ from starlette.middleware.cors import CORSMiddleware
 from auth.base_config import auth_backend, fastapi_users
 from auth.schemas import UserRead, UserCreate
 
-from operations.router import router as router_operation
 from locations.router import router as router_locations
 from exponats.router import router as router_exponats
 
@@ -37,6 +36,5 @@ app.add_middleware(
                    "Authorization"],
 )
 
-app.include_router(router_operation)
 app.include_router(router_locations)
 app.include_router(router_exponats)

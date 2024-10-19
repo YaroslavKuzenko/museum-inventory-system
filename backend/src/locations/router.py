@@ -2,6 +2,8 @@ from fastapi import APIRouter, Depends
 from sqlalchemy import select, insert
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from auth.base_config import current_user
+from auth.base_config import current_superuser
 from database import get_async_session
 from locations.models import location
 from locations.schemas import LocationCreate
@@ -12,7 +14,7 @@ router = APIRouter(
 )
 
 
-@router.get("/")
+@router.get("/", dependencies=[Depends(current_user)])
 async def get_specific_locations(location_id: int, session: AsyncSession = Depends(get_async_session)):
     query = select(location).where(location.c.id == location_id)
     result = await session.execute(query)
@@ -29,7 +31,7 @@ async def get_specific_locations(location_id: int, session: AsyncSession = Depen
     else:
         return {"error": "Location not found"}
 
-@router.post("/")
+@router.post("/", dependencies=[Depends(current_superuser)])
 async def add_specific_locations(new_location: LocationCreate, session: AsyncSession = Depends(get_async_session)):
     stmt = insert(location).values(**new_location.dict())
     await session.execute(stmt)
