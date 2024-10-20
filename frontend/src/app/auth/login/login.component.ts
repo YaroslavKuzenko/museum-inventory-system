@@ -4,6 +4,7 @@ import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/
 import {AuthService} from "../../../services/auth.service";
 import {Router} from "@angular/router";
 import {NgIf} from "@angular/common";
+import {MessageService} from "primeng/api";
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ import {NgIf} from "@angular/common";
     NgIf
   ],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  styleUrl: './login.component.scss',
 })
 export class LoginComponent {
   loginForm: FormGroup;
@@ -26,7 +27,7 @@ export class LoginComponent {
   ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]]
+      password: ['', [Validators.required, Validators.minLength(3)]]
     });
   }
 
@@ -38,7 +39,7 @@ export class LoginComponent {
       this.authService.login(email, password).subscribe({
         next: (response) => {
           console.log('User logged in successfully', response);
-          this.router.navigate(['/blog']);
+          this.router.navigate(['/dashboard']);
         },
         error: (err) => {
           console.error('Login failed', err);

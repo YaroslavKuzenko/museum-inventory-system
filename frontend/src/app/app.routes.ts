@@ -8,5 +8,6 @@ export const routes: Routes = [
   {path: 'blog/:id', loadComponent: () => import('./blog-page/post-page/post-page.component').then(m => m.PostPageComponent)},
   {path: 'privacy-policy', loadComponent: () => import('./privacy-policy-page/privacy-policy-page.component').then(m => m.PrivacyPolicyPageComponent)},
   {path: 'register', loadComponent: () => import('./auth/register/register.component').then(m => m.RegisterComponent)},
-  {path: 'login', loadComponent: () => import('./auth/login/login.component').then(m => m.LoginComponent)}
+  {path: 'login', loadComponent: () => import('./auth/login/login.component').then(m => m.LoginComponent)},
+  {path: 'dashboard', loadComponent: () => import('./dashboard/dashboard.component').then(m => m.DashboardComponent)},
 ];

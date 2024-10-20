@@ -1,0 +1,10 @@
+<h2>Your role: {{ userRole == '2' ? 'Admin': 'User' }}</h2>
+<p-tabView>
+  <p-tabPanel header="Exhibits">
+    <app-exhibit-table></app-exhibit-table>
+  </p-tabPanel>
+
+  <p-tabPanel header="Locations">
+    <app-location-table></app-location-table>
+  </p-tabPanel>
+</p-tabView>

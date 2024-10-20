@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {RouterOutlet} from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {Router, RouterOutlet} from '@angular/router';
 import {NavBarComponent} from './components/nav-bar/nav-bar.component';
 import {MainBannerComponent} from './components/main-banner/main-banner.component';
 import {TextPresentationComponent} from "./components/text-presentation/text-presentation.component";
@@ -21,6 +21,18 @@ import { CookieBannerComponent } from './components/cookie-banner/cookie-banner.
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'ksoft-website';
+
+  showHeaderAndFooter: boolean = true;
+
+  constructor(private router: Router) {}
+
+  ngOnInit(): void {
+    this.router.events.subscribe(() => {
+      this.showHeaderAndFooter = !this.router.url.startsWith('/dashboard');
+    });
+  }
 }
+
+

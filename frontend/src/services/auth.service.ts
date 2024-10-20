@@ -38,9 +38,7 @@ export class AuthService {
     });
   }
 
-  // don't work
-  isLoggedIn(): boolean {
-    return document.cookie.includes('mis');
+  getCurrentUser(): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/me`, { withCredentials: true });
   }
-
 }
