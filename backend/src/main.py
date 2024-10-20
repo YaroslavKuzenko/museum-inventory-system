@@ -1,8 +1,9 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Depends
 from starlette.middleware.cors import CORSMiddleware
 
 from auth.base_config import auth_backend, fastapi_users
 from auth.schemas import UserRead, UserCreate
+from auth.models import User
 
 from locations.router import router as router_locations
 from exponats.router import router as router_exponats
@@ -10,6 +11,9 @@ from exponats.router import router as router_exponats
 app = FastAPI(
     title="Museum Inventory System"
 )
+@app.get("/me", response_model=UserRead)
+async def read_users_me(current_user: User = Depends(fastapi_users.current_user())):
+    return current_user
 
 app.include_router(
     fastapi_users.get_auth_router(auth_backend),
@@ -25,6 +29,7 @@ app.include_router(
 
 origins = [
     "http://localhost:4200",
+    "http://127.0.0.1:8000"
 ]
 
 app.add_middleware(
