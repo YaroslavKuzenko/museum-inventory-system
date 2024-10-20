@@ -1,117 +1,242 @@
-import {Component, OnInit} from '@angular/core';
-import {MessageService} from "primeng/api";
-import {ExhibitService} from "../../services/exhibit.service";
-import {TableModule} from "primeng/table";
-import {FormsModule} from "@angular/forms";
-import {ButtonDirective} from "primeng/button";
-import {Ripple} from "primeng/ripple";
-import {InputTextModule} from "primeng/inputtext";
-import {ToastModule} from "primeng/toast";
-import {NgIf} from "@angular/common";
+import { Component, OnInit } from '@angular/core';
+import { ConfirmationService, MessageService } from 'primeng/api';
+import { Exhibit } from '../../models/exhibit.model';
+import { ExhibitService } from '../../services/exhibit.service';
+import { TableModule } from 'primeng/table';
+import { DialogModule } from 'primeng/dialog';
+import { RippleModule } from 'primeng/ripple';
+import { ButtonModule } from 'primeng/button';
+import { ToastModule } from 'primeng/toast';
+import { ToolbarModule } from 'primeng/toolbar';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { InputTextModule } from 'primeng/inputtext';
+import { CalendarModule } from 'primeng/calendar';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { CommonModule } from '@angular/common';
+import { FileUploadModule } from 'primeng/fileupload';
+import { FormsModule } from '@angular/forms';
+import { DropdownModule } from 'primeng/dropdown';
+import { InputNumberModule } from 'primeng/inputnumber';
+import {Observable} from "rxjs";
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'app-exhibit-table',
-  standalone: true,
   templateUrl: './exhibit-table.component.html',
   styleUrl: './exhibit-table.component.scss',
+  providers: [MessageService, ConfirmationService],
+  standalone: true,
   imports: [
     TableModule,
-    FormsModule,
-    ButtonDirective,
-    Ripple,
-    InputTextModule,
+    DialogModule,
+    RippleModule,
+    ButtonModule,
     ToastModule,
-    NgIf
-  ],
-  providers: [MessageService]
+    ToolbarModule,
+    ConfirmDialogModule,
+    InputTextModule,
+    CalendarModule,
+    InputTextareaModule,
+    CommonModule,
+    FileUploadModule,
+    FormsModule,
+    DropdownModule,
+    InputNumberModule
+  ]
 })
 export class ExhibitTableComponent implements OnInit {
-  exhibits: any[] = [];
-  clonedExhibits: { [s: string]: any } = {}; // Клоновані об'єкти для редагування
+  exhibits: Exhibit[] = [];
+  selectedExhibits: Exhibit[] | null = null;
+  exhibitDialog: boolean = false;
+  exhibit: Exhibit = {
+    name: '',
+    condition: '',
+    location_id: 0
+  };
+  submitted: boolean = false;
+  conditions: any[] = [];
+  locations: any[] = [];
+  userRole: string | null = null;
 
-  constructor(private exhibitService: ExhibitService, private messageService: MessageService) {}
+  constructor(
+    private authService: AuthService,
+    private exhibitService: ExhibitService,
+    private messageService: MessageService,
+    private confirmationService: ConfirmationService
+  ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.loadExhibits();
+    this.loadConditions();
+    this.loadLocations();
+
+    this.authService.getCurrentUser().subscribe({
+      next: (user) => {
+        this.userRole = user.role_id;
+      },
+      error: (err) => {
+        console.error('Failed to get user data', err);
+      }
+    });
   }
 
-  loadExhibits() {
-    this.exhibitService.getAll().subscribe(
-      data => {
+  loadExhibits(): void {
+    this.exhibitService.getAll().subscribe({
+      next: (data: Exhibit[]) => {
         this.exhibits = data;
       },
-      error => {
-        this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Failed to load exhibits' });
+      error: (err) => {
+        this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Failed to load exhibits.' });
+        console.error('Error loading exhibits:', err);
       }
-    );
+    });
   }
 
-  onRowEditInit(exhibit: any) {
-    exhibit.initialName = exhibit.name;
-    exhibit.initialAuthor = exhibit.author;
-    exhibit.initialCreatedDate = exhibit.created_date;
-    exhibit.initialMaterials = exhibit.materials;
-    exhibit.initialDescription = exhibit.description;
-    exhibit.initialCondition = exhibit.condition;
-    exhibit.initialRestorationHistory = exhibit.restoration_history;
-    exhibit.initialLocationId = exhibit.location_id;
+  loadConditions(): void {
+    // Можна отримати стани з сервісу або використовувати фіксовані значення
+    this.conditions = [
+      { label: 'Good', value: 'Good' },
+      { label: 'Fair', value: 'Fair' },
+      { label: 'Poor', value: 'Poor' }
+    ];
   }
 
+  loadLocations(): void {
+    // Припустимо, що у вас є сервіс для локацій
+    // Якщо немає, використовуйте фіксовані значення
+    this.locations = [
+      { label: 'Main Gallery', value: 1 },
+      { label: 'Outdoor Exhibition', value: 2 },
+      { label: 'Storage', value: 3 }
+    ];
 
-  onRowEditSave(exhibit: any) {
-    // Створюємо об'єкт для оновлення, який включатиме тільки змінені поля
-    const updatedFields: any = {};
-
-    // Перевіряємо, які поля були змінені
-    if (exhibit.name !== exhibit.initialName) {
-      updatedFields.name = exhibit.name;
-    }
-    if (exhibit.author !== exhibit.initialAuthor) {
-      updatedFields.author = exhibit.author;
-    }
-    if (exhibit.created_date !== exhibit.initialCreatedDate) {
-      updatedFields.created_date = exhibit.created_date;
-    }
-    if (exhibit.materials !== exhibit.initialMaterials) {
-      updatedFields.materials = exhibit.materials;
-    }
-    if (exhibit.description !== exhibit.initialDescription) {
-      updatedFields.description = exhibit.description;
-    }
-    if (exhibit.condition !== exhibit.initialCondition) {
-      updatedFields.condition = exhibit.condition;
-    }
-    if (exhibit.restoration_history !== exhibit.initialRestorationHistory) {
-      updatedFields.restoration_history = exhibit.restoration_history;
-    }
-    if (exhibit.location_id !== exhibit.initialLocationId) {
-      updatedFields.location_id = exhibit.location_id;
-    }
-
-    // Якщо є змінені поля, відправляємо запит
-    if (Object.keys(updatedFields).length > 0) {
-      this.exhibitService.updateExhibit(exhibit.id, updatedFields).subscribe(
-        () => {
-          this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Exhibit updated' });
-          exhibit.editing = false; // Знімаємо стан редагування
+    // Якщо є LocationService:
+    /*
+    this.locationService.getAll().subscribe({
+        next: (data: Location[]) => {
+            this.locations = data.map(location => ({ label: location.name, value: location.id }));
         },
-        error => {
-          this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Failed to update exhibit' });
-          this.onRowEditCancel(exhibit); // У разі помилки скасовуємо зміни
+        error: (err) => {
+            this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Failed to load locations.' });
+            console.error('Error loading locations:', err);
         }
-      );
+    });
+    */
+  }
+
+  openNew(): void {
+    this.exhibit = {
+      name: '',
+      condition: '',
+      location_id: 0
+    };
+    this.submitted = false;
+    this.exhibitDialog = true;
+  }
+
+  editExhibit(exhibit: Exhibit): void {
+    this.exhibit = { ...exhibit };
+    this.exhibitDialog = true;
+  }
+
+  deleteExhibit(exhibit: Exhibit): void {
+    this.confirmationService.confirm({
+      message: `Are you sure you want to delete exhibit "${exhibit.name}"?`,
+      header: 'Confirm',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        if (exhibit.id !== undefined) {
+          this.exhibitService.deleteExhibit(exhibit.id).subscribe({
+            next: () => {
+              this.exhibits = this.exhibits.filter((val) => val.id !== exhibit.id);
+              this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Exhibit Deleted', life: 3000 });
+            },
+            error: (err) => {
+              this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Failed to delete exhibit.' });
+              console.error('Error deleting exhibit:', err);
+            }
+          });
+        }
+      }
+    });
+  }
+
+
+
+  hideDialog(): void {
+    this.exhibitDialog = false;
+    this.submitted = false;
+  }
+
+  saveExhibit(): void {
+    this.submitted = true;
+
+    //
+    if (this.exhibit.name?.trim() && this.exhibit.condition && this.exhibit.location_id) {
+      console.log('robeeeeeeee');
+      if (this.exhibit.id !== undefined) {
+        // Оновлення існуючого експонату
+        this.exhibitService.updateExhibit(this.exhibit.id, this.exhibit).subscribe({
+          next: (updatedExhibit: Exhibit) => {
+            const index = this.exhibits.findIndex(e => e.id === updatedExhibit.id);
+            if (index !== -1) {
+              this.exhibits[index] = updatedExhibit;
+            }
+            this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Exhibit Updated', life: 3000 });
+            this.exhibits = [...this.exhibits];
+            this.exhibitDialog = false;
+            this.exhibit = {
+              name: '',
+              condition: '',
+              location_id: 0
+            };
+          },
+          error: (err) => {
+            this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Failed to update exhibit.' });
+            console.error('Error updating exhibit:', err);
+          }
+        });
+      } else {
+        // Створення нового експонату
+        this.exhibitService.addExhibit(this.exhibit).subscribe({
+          next: (newExhibit: Exhibit) => {
+            this.exhibits.push(newExhibit);
+            this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Exhibit Created', life: 3000 });
+            this.exhibits = [...this.exhibits];
+            this.exhibitDialog = false;
+            this.exhibit = {
+              name: '',
+              condition: '',
+              location_id: 0
+            };
+          },
+          error: (err) => {
+            this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Failed to create exhibit.' });
+            console.error('Error creating exhibit:', err);
+          }
+        });
+      }
     }
   }
 
-
-
-  onRowEditCancel(exhibit: any) {
-    this.exhibits[this.findIndexById(exhibit.id)] = this.clonedExhibits[exhibit.id]; // Повертаємо оригінальні дані
-    delete this.clonedExhibits[exhibit.id];
+  exportExhibits(): void {
   }
 
-
-  findIndexById(id: number): number {
-    return this.exhibits.findIndex(exhibit => exhibit.id === id);
+  private saveAsExcelFile(buffer: any, fileName: string): void {
   }
+
+  getSeverity(condition: string) {
+    switch (condition.toLowerCase()) {
+      case 'good':
+        return 'success';
+      case 'fair':
+        return 'warning';
+      case 'poor':
+        return 'danger';
+      default:
+        return 'info';
+    }
+  }
+
+  protected readonly HTMLInputElement = HTMLInputElement;
 }

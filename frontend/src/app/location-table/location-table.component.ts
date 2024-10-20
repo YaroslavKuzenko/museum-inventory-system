@@ -4,7 +4,7 @@ import {TableModule} from "primeng/table";
 import {FormsModule} from "@angular/forms";
 import {MessageService} from "primeng/api";
 import {InputTextModule} from "primeng/inputtext";
-import {ButtonDirective} from "primeng/button";
+import {ButtonDirective, ButtonModule} from "primeng/button";
 import {NgIf} from "@angular/common";
 import {ToastModule} from "primeng/toast";
 
@@ -17,9 +17,9 @@ import {ToastModule} from "primeng/toast";
     TableModule,
     FormsModule,
     InputTextModule,
-    ButtonDirective,
     NgIf,
-    ToastModule
+    ToastModule,
+    ButtonModule
   ],
   providers: [MessageService]
 })

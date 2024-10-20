@@ -2,6 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy import select, insert, update, delete, func
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from datetime import datetime
 from auth.base_config import current_user, current_superuser
 from database import get_async_session
 from exponats.models import exponat
@@ -93,11 +94,17 @@ async def update_exponat(
     if not existing_exponat:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Exponat not found")
 
+    # Перевірка та конвертація поля `created_date`
+    update_data = exponat_update.dict(exclude_unset=True)
+    if 'created_date' in update_data and isinstance(update_data['created_date'], str):
+        # Конвертація рядка у форматі 'YYYY-MM-DD' у datetime.date
+        update_data['created_date'] = datetime.strptime(update_data['created_date'], '%Y-%m-%d').date()
+
     # Оновлення експоната
     stmt = (
         update(exponat)
         .where(exponat.c.id == exponat_id)
-        .values(**exponat_update.dict(exclude_unset=True))
+        .values(**update_data)
     )
     await session.execute(stmt)
     await session.commit()
