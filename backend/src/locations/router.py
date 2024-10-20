@@ -64,7 +64,7 @@ async def add_specific_locations(
     stmt = insert(location).values(id=new_id, **new_location.dict())
     await session.execute(stmt)
     await session.commit()
-    return {"status": "success", "id": new_id}
+    return {"id": new_id, **new_location.dict()}
 
 # Оновлення даних про локацію (доступ тільки для суперкористувачів)
 @router.put("/{location_id}", dependencies=[Depends(current_superuser)])

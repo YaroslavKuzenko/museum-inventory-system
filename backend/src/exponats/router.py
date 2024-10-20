@@ -78,7 +78,7 @@ async def add_specific_exponats(
     stmt = insert(exponat).values(id=new_id, **new_exponat.dict())
     await session.execute(stmt)
     await session.commit()
-    return {"status": "success", "id": new_id}
+    return {"id": new_id, **new_exponat.dict()}
 
 # Оновлення даних про експонат (доступ тільки для суперкористувачів)
 @router.put("/{exponat_id}", dependencies=[Depends(current_user)])
