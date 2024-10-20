@@ -98,7 +98,7 @@ async def update_exponat(
     update_data = exponat_update.dict(exclude_unset=True)
     if 'created_date' in update_data and isinstance(update_data['created_date'], str):
         # Конвертація рядка у форматі 'YYYY-MM-DD' у datetime.date
-        update_data['created_date'] = datetime.strptime(update_data['created_date'], '%Y-%m-%d').date()
+        update_data['created_date'] = datetime.fromisoformat(update_data['created_date'].replace("Z", "+00:00")).date()
 
     # Оновлення експоната
     stmt = (
